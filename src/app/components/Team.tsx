@@ -7,25 +7,25 @@ const team = [
   {
     name: "Abhay Porwal",
     handle: "@abhayporwals",
-    role: "Full-Stack development",
+    role: "Full-Stack Developer",
     image: "/abhay.png",
   },
   {
     name: "S Adithiya",
     handle: "@Adithiya1S",
-    role: "Front-end development",
+    role: "Front-end Developer",
     image: "/adi.png",
   },
   {
     name: "Rohan Singla",
     handle: "@rohanBuilds",
-    role: "Blockchain development",
+    role: "Blockchain Developer",
     image: "/rohan.png",
   },
   {
     name: "Ruchika Narang",
     handle: "@RuchikaNarang06",
-    role: "ML dev and Design",
+    role: "UI/UX Designer",
     image: "/ruchi.png",
   },
 ];

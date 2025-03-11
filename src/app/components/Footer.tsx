@@ -55,7 +55,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="mb-6"
             >
-              <h2 className="text-4xl font-light mb-3">
+              <h2 className="text-6xl font-light mb-3">
                 <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                   APTURA
                 </span>
