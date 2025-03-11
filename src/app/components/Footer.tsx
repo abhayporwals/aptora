@@ -141,7 +141,7 @@ export default function Footer() {
             <div>
               <h3 className="font-semibold mb-4 text-lg">Follow Us</h3>
               <motion.a
-                href="https://twitter.com/ApturaCrypto"
+                href="https://twitter.com/ApturaX"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-all duration-300"
