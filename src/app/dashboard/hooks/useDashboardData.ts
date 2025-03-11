@@ -90,6 +90,7 @@ export function useDashboardData(): DashboardData {
     const interval = setInterval(fetchData, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
+    
   }, []);
 
   return data;

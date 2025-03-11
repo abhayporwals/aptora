@@ -14,7 +14,7 @@ export async function GET(req: Request) {
     }
 
     const nftApiUrl = `https://apis.dappradar.com/v2/dapps/top/balance?range=24h&top=10&chain=aptos`;
-    const newsApiUrl = `https://cryptopanic.com/api/v1/posts/?auth_token=${CRYPTOPANIC_API_KEY}&public=true&currencies=${currency}&limit=10`;
+    const newsApiUrl = `https://cryptopanic.com/api/v1/posts/?auth_token=${CRYPTOPANIC_API_KEY}&public=true&currencies=${currency}`;
 
     const [nftResponse, newsResponse] = await Promise.all([
       fetch(nftApiUrl, {
