@@ -5,7 +5,7 @@
 :root {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --background: #ffffff;
+  --background: #0a0a0a;
   --foreground: #ffffff;
   --primary: #7b2cbf;
   --primary-dark: #5a189a;
@@ -13,17 +13,8 @@
   --primary-lighter: #e0aaff;
   --dark: #240046;
   --light: #f8f9fa;
-  --card-bg: rgba(123, 44, 191, 0.05);
-  --card-border: rgba(123, 44, 191, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ffffff;
-    --card-bg: rgba(123, 44, 191, 0.1);
-    --card-border: rgba(123, 44, 191, 0.2);
-  }
+  --card-bg: rgba(123, 44, 191, 0.1);
+  --card-border: rgba(123, 44, 191, 0.2);
 }
 
 body {
