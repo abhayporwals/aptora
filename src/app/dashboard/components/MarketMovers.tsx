@@ -6,6 +6,9 @@ import { useDashboardData } from "../hooks/useDashboardData";
 export default function MarketMovers() {
   const { topDapps, isLoading, error } = useDashboardData();
 
+
+  console.log(topDapps);
+
   if (isLoading) {
     return (
       <motion.div
@@ -38,41 +41,43 @@ export default function MarketMovers() {
 
   return (
     <div className="space-y-4">
-      {topDapps ? topDapps.map((dapp, index) => (
-        <motion.div
-          key={index}
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: index * 0.1 }}
-          className="block p-4 rounded-xl bg-card/20 border border-white/5 hover:bg-card/30 transition-all"
-        >
-          {/* DApp Name & Logo */}
-          <div className="flex items-center gap-3 mb-2">
-            <img src={dapp?.logo} alt={dapp?.name} className="w-10 h-10 rounded-lg" />
-            <h3 className="text-foreground/90 font-medium">{dapp?.name}</h3>
-          </div>
+      {topDapps.length > 0 ? (
+        topDapps.map((dapp, index) => (
+          <motion.div
+            key={index}
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="block p-4 rounded-xl bg-card/20 border border-white/5 hover:bg-card/30 transition-all"
+          >
+            {/* Logo & Name */}
+            <div className="flex items-center gap-3 mb-2">
+              <img src={dapp.logo} alt={dapp.name} className="w-8 h-8 rounded-full" />
+              <h3 className="text-foreground/90 font-medium">{dapp.name}</h3>
+            </div>
 
-          {/* Description */}
-          <p className="text-sm text-foreground/70">{dapp?.description}</p>
-
-          {/* Metrics */}
-          <div className="mt-3 grid grid-cols-3 gap-2 text-xs text-foreground/60">
-            <div>
-              <span className="font-medium text-foreground">{dapp?.metrics?.transactions.toLocaleString()}</span>
-              <p>Transactions</p>
+            {/* Transactions & Volume */}
+            <div className="grid grid-cols-3 gap-2 text-xs text-foreground/60">
+              <div>
+                <span className="font-medium text-foreground">{dapp.metrics?.transactions ?? "N/A"}</span>
+                <p>Transactions</p>
+              </div>
+              <div>
+                <span className="font-medium text-foreground">{dapp.metrics?.uaw ?? "N/A"}</span>
+                <p>Users</p>
+              </div>
+              <div>
+                <span className="font-medium text-foreground">${dapp.metrics?.volume?.toLocaleString() ?? "N/A"}</span>
+                <p>Volume</p>
+              </div>
             </div>
-            <div>
-              <span className="font-medium text-foreground">{dapp?.metrics?.uaw}</span>
-              <p>Users</p>
-            </div>
-            <div>
-              <span className="font-medium text-foreground">${dapp?.metrics?.volume.toLocaleString()}</span>
-              <p>Volume</p>
-            </div>
-          </div>
-        </motion.div>
-      )) : null}
+          </motion.div>
+        ))
+      ) : (
+        <p className="text-sm text-foreground/50">Loading or No DApps Found...</p>
+      )}
     </div>
+
   );
 }
