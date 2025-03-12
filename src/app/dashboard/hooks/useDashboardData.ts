@@ -34,10 +34,50 @@ interface DappItem {
   metrics: DappMetrics;
   website: string;
 }
+interface topGainersData {
+  id: string;
+  symbol: string;
+  name: string;
+  image: string;
+  current_price: number;
+  market_cap: number;
+  market_cap_rank: number;
+  total_volume: number;
+  high_24h: number;
+  low_24h: number;
+  price_change_24h: number;
+  price_change_percentage_24h: number;
+  last_updated: string;
+}
+
+interface topLosersData {
+  id: string;
+  symbol: string;
+  name: string;
+  image: string;
+  current_price: number;
+  market_cap: number;
+  market_cap_rank: number | null;
+  total_volume: number;
+  high_24h: number;
+  low_24h: number;
+  price_change_24h: number;
+  price_change_percentage_24h: number;
+  last_updated: string;
+}
+
+interface AptosChartData {
+  prices: [number, number][]
+  market_caps: [number, number][]
+  total_volumes: [number, number][];
+}
 
 interface DashboardData {
   topDapps: DappItem[];
   news: NewsItem[];
+  topGainers: topGainersData[];
+  topLosers: topLosersData[];
+  aptosChartData: AptosChartData[];
   isLoading: boolean;
   error: string | null;
 }
@@ -46,6 +86,9 @@ export function useDashboardData(): DashboardData {
   const [data, setData] = useState<DashboardData>({
     topDapps: [],
     news: [],
+    topGainers: [],
+    topLosers: [],
+    aptosChartData: [],
     isLoading: true,
     error: null,
   });
@@ -73,10 +116,13 @@ export function useDashboardData(): DashboardData {
         setData({
           topDapps: formattedDapps,
           news: result.news || [],
+          topGainers: result.topGainers || [],
+          topLosers: result.topLosers || [],
+          aptosChartData: result.aptosChartData || [],
           isLoading: false,
           error: null,
         });
-        
+
       } catch (error) {
         setData((prev) => ({
           ...prev,
@@ -91,7 +137,7 @@ export function useDashboardData(): DashboardData {
     const interval = setInterval(fetchData, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
-    
+
   }, []);
 
   return data;
