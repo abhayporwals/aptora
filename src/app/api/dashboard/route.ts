@@ -7,7 +7,7 @@ const formatChartData = (prices: [number, number][]) => {
   }));
 };
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const currency = "APT,AMAPT,TRUAPT,THAPT,STAPT";
     const DAPPRADAR_API_KEY = process.env.DAPPRADAR_API_KEY;
