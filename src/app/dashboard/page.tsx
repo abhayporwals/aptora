@@ -2,10 +2,20 @@ import NewsSection from "./components/NewsSection";
 import TopDapps from "./components/TopDapps";
 import PriceOverview from "./components/PriceOverview";
 import MarketMovers from "./components/MarketMovers";
+import TopGainers from "../components/TopGainers";
+import TopLosers from "../components/TopLosers";
 
 export default function DashboardPage() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
+    <>
+    
+    <div className="flex w-full justify-between">
+    <TopGainers/>
+    <TopLosers/>
+  
+    </div>
+  
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
       {/* Price Overview Section */}
       <div className="lg:col-span-8">
         <PriceOverview />
@@ -26,5 +36,6 @@ export default function DashboardPage() {
         <MarketMovers />
       </div>
     </div>
+    </>
   );
 }
