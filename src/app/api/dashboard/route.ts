@@ -22,7 +22,9 @@ export async function GET(req: Request) {
 
     const toplosers = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_asc&per_page=10&page=1&price_change_percentage=24h`;
 
-    const [mytopDapps, newsResponse, topGainers, topLosers] = await Promise.all([
+    const aptoschart = `https://api.coingecko.com/api/v3/coins/aptos/market_chart?vs_currency=usd&days=7`
+
+    const [mytopDapps, newsResponse, topGainers, topLosers, myChart] = await Promise.all([
       fetch(topDapps, {
         headers: { "X-API-Key": DAPPRADAR_API_KEY || "" },
       }).then((res) => {
@@ -45,6 +47,12 @@ export async function GET(req: Request) {
         if (!res.ok) throw new Error(`Top Losers API returned ${res.status}`);
         return res.json();
       }),
+      fetch(aptoschart, {
+        headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
+      }).then((res) => {
+        if (!res.ok) throw new Error(`Aptos Chart API returned ${res.status}`);
+        return res.json();
+      }),
     ]);
 
     return NextResponse.json({
@@ -52,6 +60,7 @@ export async function GET(req: Request) {
       news: newsResponse.results ? newsResponse.results.slice(0, 10) : [],
       topGainers: topGainers || [],
       topLosers: topLosers || [],
+      aptosChartData: myChart || [],
     });
   } catch (error) {
     console.error("Error fetching combined data:", error);

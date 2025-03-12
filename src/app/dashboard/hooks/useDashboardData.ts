@@ -76,6 +76,7 @@ export function useDashboardData(): DashboardData {
           isLoading: false,
           error: null,
         });
+        
       } catch (error) {
         setData((prev) => ({
           ...prev,
