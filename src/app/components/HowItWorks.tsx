@@ -6,17 +6,17 @@ const technologies = [
   {
     title: "Move AI Agent Kit",
     description: "AI-powered automation & interactions",
-    icon: "🤖",
+    icon: "https://metamove.build/assets/logo.svg",
   },
   {
     title: "DappRadar API",
     description: "Live tracking of Aptos ecosystem projects",
-    icon: "📊",
+    icon: "https://cdn-icons-png.flaticon.com/128/4222/4222019.png",
   },
   {
     title: "CryptoPanic API",
     description: "Fetching breaking crypto news instantly",
-    icon: "📰",
+    icon: "https://cdn-icons-png.flaticon.com/128/9214/9214126.png",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function HowItWorks() {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-2xl" />
                   <div className="relative flex items-center gap-4">
                     <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary-light/10 text-2xl group-hover:scale-110 transition-transform duration-300">
-                      {tech.icon}
+                     <img src={tech.icon} alt="icon" className="w-12 h-12 object-contain" /> 
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
