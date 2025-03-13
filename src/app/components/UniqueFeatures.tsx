@@ -56,7 +56,7 @@ const item = {
 
 export default function UniqueFeatures() {
   return (
-    <section id="features-section" className="py-32 relative overflow-hidden" style={{ fontFamily:"Cinzel", fontWeight:600, fontStyle:"normal", fontOpticalSizing:"auto"}}>
+    <section id="features-section" className="py-32 relative overflow-hidden" >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-card-bg pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.15),transparent_50%)]" />
@@ -84,7 +84,6 @@ export default function UniqueFeatures() {
           whileInView="show"
           viewport={{ once: true }}
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          style={{ fontFamily:"Rock Salt, cursive", fontWeight:400, fontStyle:"normal"}}
         >
           {uniqueFeatures.map((feature) => (
             <motion.div key={feature.title} variants={item} className="group">

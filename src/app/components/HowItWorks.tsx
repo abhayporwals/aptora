@@ -35,7 +35,7 @@ const item = {
 
 export default function HowItWorks() {
   return (
-    <section id="about-us" className="py-32 relative overflow-hidden "  style={{ fontFamily:"Cinzel", fontWeight:600, fontStyle:"normal", fontOpticalSizing:"auto"}}>
+    <section id="about-us" className="py-32 relative overflow-hidden "  >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-card-bg pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.15),transparent_50%)]" />
@@ -67,7 +67,7 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h3 className="text-2xl font-light text-center mb-8 rock-salt-regular" >
+          <h3 className="text-2xl font-light text-center mb-8 " >
             ApturaX leverages:
           </h3>
           <motion.div
@@ -79,7 +79,7 @@ export default function HowItWorks() {
           >
             {technologies.map((tech) => (
               <motion.div key={tech.title} variants={item} className="group">
-                <div className="relative p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl transition-all duration-300 hover:bg-card/40 hover:scale-[1.02] hover:shadow-2xl rock-salt-regular" >
+                <div className="relative p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl transition-all duration-300 hover:bg-card/40 hover:scale-[1.02] hover:shadow-2xl " >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-2xl" />
                   <div className="relative flex items-center gap-4">
                     <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary-light/10 text-2xl group-hover:scale-110 transition-transform duration-300">
@@ -115,7 +115,7 @@ export default function HowItWorks() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white rounded-full font-medium transition-all shadow-lg hover:shadow-primary/25 rock-salt-regular"
+              className="px-8 py-4 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white rounded-full font-medium transition-all shadow-lg hover:shadow-primary/25 "
               
             >
               See ApturaX in Action

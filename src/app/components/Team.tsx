@@ -96,11 +96,11 @@ export default function Team() {
                       <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                         {member.name}
                       </h3>
-                      <span className="text-foreground/70 rock-salt-regular">
+                      <span className="text-foreground/70 ">
                         {member.handle}
                       </span>
                     </div>
-                    <p className="text-lg text-foreground/90 mt-2 rock-salt-regular">
+                    <p className="text-lg text-foreground/90 mt-2 ">
                       {member.role}
                     </p>
                     <div className="flex items-center gap-2 text-sm text-foreground/50 mt-3">

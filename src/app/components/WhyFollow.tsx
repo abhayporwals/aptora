@@ -42,7 +42,7 @@ const item = {
 
 export default function WhyFollow() {
   return (
-    <section className="py-32 relative overflow-hidden" style={{ fontFamily:"Cinzel", fontWeight:600, fontStyle:"normal", fontOpticalSizing:"auto"}}>
+    <section className="py-32 relative overflow-hidden" >
       {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-card-bg pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.15),transparent_50%)]" />
@@ -61,7 +61,7 @@ export default function WhyFollow() {
               Aptura
             </span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto rock-salt-regular" >
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto " >
             Get access to on chain analysis and insights, join a thriving
             community of Aptos enthusiasts, and never miss an opportunity with
             instant market alerts.
@@ -77,7 +77,7 @@ export default function WhyFollow() {
         >
           {reasons.map((reason) => (
             <motion.div key={reason.title} variants={item} className="group">
-              <div className="relative p-8 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl transition-all duration-300 hover:bg-card/40 hover:scale-[1.02] hover:shadow-2xl rock-salt-regular">
+              <div className="relative p-8 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl transition-all duration-300 hover:bg-card/40 hover:scale-[1.02] hover:shadow-2xl ">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-2xl" />
                 <div className="relative flex items-start gap-6">
                   <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary-light/10 group-hover:scale-110 transition-transform duration-300">
@@ -109,7 +109,7 @@ export default function WhyFollow() {
           <div className="relative max-w-3xl mx-auto p-8 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-light/5" />
             <div className="relative">
-              <h3 className="text-3xl font-semibold mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" style={{ fontFamily:"Cinzel", fontWeight:400, fontStyle:"normal", fontOpticalSizing:"auto"}}>
+              <h3 className="text-3xl font-semibold mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" >
                 Ready to Start Your Journey?
               </h3>
               <p className="text-lg text-foreground/70 mb-8 " style={{ fontFamily:"Rock Salt, cursive", fontWeight:400, fontStyle:"normal"}}>
@@ -118,7 +118,7 @@ export default function WhyFollow() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white rounded-full font-medium transition-all shadow-lg hover:shadow-primary/25 rock-salt-regular"
+                className="px-8 py-3 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white rounded-full font-medium transition-all shadow-lg hover:shadow-primary/25 "
               >
                 Get Started Now
               </motion.button>
