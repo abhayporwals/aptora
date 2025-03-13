@@ -5,7 +5,9 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden"
+    style={{ fontFamily:"Cinzel", fontWeight:500, fontStyle:"normal", fontOpticalSizing:"auto"}}
+>
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -27,8 +29,10 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="max-w-xl pt-20"
           >
-            <h1 className="text-6xl font-light mb-6 text-black">APTURA</h1>
-            <h2 className="text-xl font-light mb-12 leading-relaxed">
+            <h1 className="text-6xl font-light mb-6 text-black"style={{ fontFamily:"Cinzel", fontWeight:600, fontStyle:"normal", fontOpticalSizing:"auto"}}
+            >APTURA</h1>
+            <h2 className="text-xl font-light mb-12 leading-relaxed"     
+            >
               The Autonomous AI
               <br />
               Revolutionizing Aptos
@@ -86,19 +90,20 @@ export default function Hero() {
             className="relative mt-32 flex flex-col items-center gap-16 px-8 py-16 rounded-[40px]"
           >
             <a
-              href="#features"
+              href="#features-section"
+              
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
               FEATURES
             </a>
             <a
-              href="#about"
+              href="#about-us"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
               ABOUT
             </a>
             <a
-              href="#contact"
+              href="#footer-section"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
               CONTACT

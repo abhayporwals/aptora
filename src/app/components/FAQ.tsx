@@ -30,7 +30,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden" style={{ fontFamily:"Cinzel", fontWeight:600, fontStyle:"normal", fontOpticalSizing:"auto"}}>
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-card-bg pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.15),transparent_50%)]" />
@@ -50,7 +50,7 @@ export default function FAQ() {
               Questions
             </span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto" style={{ fontFamily:"Crimson Pro", fontWeight:400, fontStyle:"normal", fontOpticalSizing:"auto"}}>
             Everything you need to know about Aptura. Can&apos;t find the answer
             you&apos;re looking for? Feel free to reach out to our support team.
           </p>
@@ -74,7 +74,7 @@ export default function FAQ() {
                   }
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-2xl" />
-                  <div className="relative">
+                  <div className="relative " style={{ fontFamily:"Crimson Pro", fontWeight:200, fontStyle:"normal", fontOpticalSizing:"auto"}}>
                     <div className="flex justify-between items-center gap-4">
                       <h3 className="text-xl bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent group-hover:from-primary-light group-hover:to-primary transition-all duration-300 font-semibold tracking-wider">
                         {faq.question}
@@ -109,7 +109,7 @@ export default function FAQ() {
                           transition={{ duration: 0.3 }}
                           className="overflow-hidden"
                         >
-                          <p className="mt-4 text-foreground/70 leading-relaxed">
+                          <p className="mt-4 text-foreground/70 leading-relaxed rock-salt-regular">
                             {faq.answer}
                           </p>
                         </motion.div>
@@ -129,9 +129,9 @@ export default function FAQ() {
             transition={{ delay: 0.4 }}
             className="mt-16 text-center"
           >
-            <p className="text-foreground/70 mb-6">Still have questions?</p>
+            <p className="text-foreground/70 mb-6 rock-salt-regular">Still have questions?</p>
             <motion.a
-              href="#contact"
+              href="#footer-section"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white rounded-full transition-all shadow-lg hover:shadow-primary/25"

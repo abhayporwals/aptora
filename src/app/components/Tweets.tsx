@@ -16,13 +16,13 @@ export default function Tweets() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl font-light tracking-wider mb-6">
+          <h2 className="text-6xl font-light tracking-wider mb-6" style={{ fontFamily:"Cinzel", fontWeight:500, fontStyle:"normal", fontOpticalSizing:"auto"}}>
             Some of Our
             <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent ml-3">
               Tweets
             </span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto" style={{ fontFamily:"Crimson Pro", fontWeight:200, fontStyle:"normal", fontOpticalSizing:"auto"}}>
             Stay updated with our latest insights and analysis on the Aptos
             ecosystem
           </p>

@@ -45,7 +45,7 @@ const item = {
 
 export default function Team() {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden" style={{ fontFamily:"Crimson Pro", fontWeight:200, fontStyle:"normal", fontOpticalSizing:"auto"}}>
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-card-bg pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.15),transparent_50%)]" />
@@ -91,16 +91,16 @@ export default function Team() {
                       className="object-cover rounded-xl"
                     />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 ">
                     <div className="flex flex-col gap-1">
                       <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                         {member.name}
                       </h3>
-                      <span className="text-foreground/70">
+                      <span className="text-foreground/70 rock-salt-regular">
                         {member.handle}
                       </span>
                     </div>
-                    <p className="text-lg text-foreground/90 mt-2">
+                    <p className="text-lg text-foreground/90 mt-2 rock-salt-regular">
                       {member.role}
                     </p>
                     <div className="flex items-center gap-2 text-sm text-foreground/50 mt-3">

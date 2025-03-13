@@ -47,6 +47,7 @@ export default function UpcomingPlans() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-6xl font-light text-center mb-16"
+          style={{ fontFamily:"Cinzel", fontWeight:600, fontStyle:"normal", fontOpticalSizing:"auto"}}
         >
           Upcoming
           <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent ml-3">
@@ -118,10 +119,10 @@ export default function UpcomingPlans() {
             className="text-center mt-12"
           >
             <div className="mt-12 text-center backdrop-blur-sm bg-card/30 border border-white/10 rounded-xl p-8 shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
-              <p className="text-2xl font-light mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+              <p className="text-2xl font-light mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" style={{ fontFamily:"Crimson Pro", fontWeight:300, fontStyle:"normal", fontOpticalSizing:"auto"}}>
                 Launching Soon
               </p>
-              <p className="text-foreground/70 text-lg">
+              <p className="text-foreground/70 text-lg" style={{ fontFamily:"Crimson Pro", fontWeight:300, fontStyle:"normal", fontOpticalSizing:"auto"}}>
                 Follow us on social media for the latest updates and
                 announcements
               </p>

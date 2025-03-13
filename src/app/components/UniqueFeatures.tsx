@@ -7,35 +7,35 @@ const uniqueFeatures = [
     title: "Autonomous Newsfeed",
     description:
       "Tweets & threads on Aptos projects, DeFi, and ecosystem updates.",
-    icon: "📰",
+    icon: "https://cdn-icons-png.flaticon.com/128/342/342385.png",
   },
   {
     title: "AI-Driven Replies",
     description:
       "Replies to tweets with real-time insights & even roasts bad takes.",
-    icon: "🤖",
+    icon: "https://cdn-icons-png.flaticon.com/128/1793/1793468.png",
   },
   {
     title: "On-Chain Tracking",
     description:
       "Live wallet insights, NFT collections, real-time token prices & staking data.",
-    icon: "📊",
+    icon: "https://cdn-icons-png.flaticon.com/128/4222/4222019.png",
   },
   {
     title: "DEX Intelligence",
     description:
       "Monitors liquidity pools, swap rates, and top trader positions.",
-    icon: "💹",
+    icon: "https://cdn-icons-png.flaticon.com/128/3310/3310608.png",
   },
   {
     title: "AI-Generated Visuals",
     description: "Image-based insights, trending memes, and real-time charts.",
-    icon: "🎨",
+    icon: "https://cdn-icons-png.flaticon.com/128/12350/12350642.png",
   },
   {
     title: "Instant Execution",
     description: "Tracks & reacts to events faster than humans can.",
-    icon: "⚡",
+    icon: "https://cdn-icons-png.flaticon.com/128/1329/1329948.png",
   },
 ];
 
@@ -56,7 +56,7 @@ const item = {
 
 export default function UniqueFeatures() {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section id="features-section" className="py-32 relative overflow-hidden" style={{ fontFamily:"Cinzel", fontWeight:600, fontStyle:"normal", fontOpticalSizing:"auto"}}>
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-card-bg pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,44,191,0.15),transparent_50%)]" />
@@ -84,6 +84,7 @@ export default function UniqueFeatures() {
           whileInView="show"
           viewport={{ once: true }}
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          style={{ fontFamily:"Rock Salt, cursive", fontWeight:400, fontStyle:"normal"}}
         >
           {uniqueFeatures.map((feature) => (
             <motion.div key={feature.title} variants={item} className="group">
@@ -92,7 +93,7 @@ export default function UniqueFeatures() {
                 <div className="relative">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary-light/10 text-2xl group-hover:scale-110 transition-transform duration-300">
-                      {feature.icon}
+                     <img src={feature.icon} alt="icon" className="w-12 h-12 object-contain" /> 
                     </div>
                     <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
                       {feature.title}
