@@ -29,9 +29,11 @@ export async function GET() {
 
     const toplosers = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_asc&per_page=10&page=1&price_change_percentage=24h&ids=aptos`;
 
+    const aptPrice = `https://api.coingecko.com/api/v3/simple/price?ids=aptos&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`;
+
     const aptoschart = `https://api.coingecko.com/api/v3/coins/aptos/market_chart?vs_currency=usd&days=7&interval=daily`
 
-    const [mytopDapps, newsResponse, topGainers, topLosers, myChart] = await Promise.all([
+    const [mytopDapps, newsResponse, topGainers, topLosers,APTPrice, myChart] = await Promise.all([
       fetch(topDapps, {
         headers: { "X-API-Key": DAPPRADAR_API_KEY || "" },
       }).then((res) => {
@@ -54,6 +56,12 @@ export async function GET() {
         if (!res.ok) throw new Error(`Top Losers API returned ${res.status}`);
         return res.json();
       }),
+      fetch(aptPrice, {
+        headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
+      }).then((res) => {
+        if (!res.ok) throw new Error(`APT Price API returned ${res.status}`);
+        return res.json();
+      }),
       fetch(aptoschart, {
         headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
       }).then((res) => {
@@ -68,6 +76,7 @@ export async function GET() {
       news: newsResponse.results ? newsResponse.results.slice(0, 10) : [],
       topGainers: topGainers || [],
       topLosers: topLosers || [],
+      AptoPrice: APTPrice || [],
       aptosChartData: aptosChartData || [],
     });
   } catch (error) {

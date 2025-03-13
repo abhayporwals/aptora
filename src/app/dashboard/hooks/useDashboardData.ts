@@ -65,6 +65,16 @@ interface topLosersData {
   price_change_percentage_24h: number;
   last_updated: string;
 }
+interface CoinPrice {
+  usd: number;
+  usd_market_cap: number;
+  usd_24h_vol: number;
+}
+
+interface CoinGeckoPriceResponse {
+  aptos: CoinPrice;
+}
+
 
 interface AptosChartData {
   prices: [number, number][]
@@ -75,6 +85,7 @@ interface DashboardData {
   news: NewsItem[];
   topGainers: topGainersData[];
   topLosers: topLosersData[];
+  aptPrice: CoinGeckoPriceResponse[];
   aptosChartData: AptosChartData[];
   isLoading: boolean;
   error: string | null;
@@ -86,6 +97,7 @@ export function useDashboardData(): DashboardData {
     news: [],
     topGainers: [],
     topLosers: [],
+    aptPrice: [],
     aptosChartData: [],
     isLoading: true,
     error: null,
@@ -116,6 +128,7 @@ export function useDashboardData(): DashboardData {
           news: result.news || [],
           topGainers: result.topGainers || [],
           topLosers: result.topLosers || [],
+          aptPrice: result.AptoPrice || [],
           aptosChartData: result.aptosChartData || [],
           isLoading: false,
           error: null,
