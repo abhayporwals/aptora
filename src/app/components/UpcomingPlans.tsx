@@ -28,7 +28,7 @@ const features = [
 
 export default function UpcomingPlans() {
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-background to-card-bg">
+    <section className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-b from-background to-card-bg">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <Image
@@ -41,17 +41,21 @@ export default function UpcomingPlans() {
         <div className="absolute inset-0 bg-black/60" /> {/* Dark overlay */}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-6xl font-light text-center mb-16"
+          className="text-4xl sm:text-5xl md:text-6xl font-light text-center mb-12 md:mb-16"
+          style={{ fontFamily: "Cinzel", fontWeight: 600, fontStyle: "normal", fontOpticalSizing: "auto" }}
         >
           Upcoming
-          <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent ml-3">
+          <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent ml-2 md:ml-3">
             Plans
           </span>
+          <p className="text-lg sm:text-xl md:text-2xl font-light text-foreground/90 mb-4 mt-1">
+          The future of Aptura is evolving—stay tuned for game-changing innovations.
+          </p>
         </motion.h2>
 
         <div className="max-w-4xl mx-auto">
@@ -72,14 +76,14 @@ export default function UpcomingPlans() {
               </div>
 
               {/* Terminal Content */}
-              <div className="p-6 font-mono">
+              <div className="p-4 sm:p-6 font-mono">
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: feature.delay, duration: 0.5 }}
-                    className="flex items-start gap-2 mb-14 text-gray-200"
+                    className="flex items-start gap-2 mb-8 sm:mb-14 text-gray-200"
                   >
                     <span className="text-[#4D9DE0] whitespace-pre">{">"}</span>
                     <span className="text-[#98C379]">{feature.text}</span>
@@ -91,7 +95,7 @@ export default function UpcomingPlans() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
-                  className="mt-8 flex items-center gap-6 text-sm text-gray-400"
+                  className="mt-6 sm:mt-8 flex items-center gap-4 sm:gap-6 text-sm text-gray-400"
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-[#E5C07B]">󰍛</span>
@@ -117,13 +121,12 @@ export default function UpcomingPlans() {
             transition={{ delay: 1 }}
             className="text-center mt-12"
           >
-            <div className="mt-12 text-center backdrop-blur-sm bg-card/30 border border-white/10 rounded-xl p-8 shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
-              <p className="text-2xl font-light mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+            <div className="mt-8 sm:mt-12 text-center backdrop-blur-sm bg-card/30 border border-white/10 rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
+              <p className="text-xl sm:text-2xl font-light mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" style={{ fontFamily: "Crimson Pro", fontWeight: 300, fontStyle: "normal", fontOpticalSizing: "auto" }}>
                 Launching Soon
               </p>
-              <p className="text-foreground/70 text-lg">
-                Follow us on social media for the latest updates and
-                announcements
+              <p className="text-foreground/70 text-base sm:text-lg" style={{ fontFamily: "Crimson Pro", fontWeight: 300, fontStyle: "normal", fontOpticalSizing: "auto" }}>
+                Follow us on social media for the latest updates and announcements
               </p>
             </div>
           </motion.div>

@@ -5,40 +5,39 @@ import { motion } from "framer-motion";
 
 export default function Tweets() {
   return (
-    <section className="py-20 relative overflow-hidden max max-h-[140vh] ">
+    <section className="py-16 md:py-20 relative overflow-hidden max-h-[140vh]">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-card-bg to-background-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-card-bg to-background pointer-events-none" />
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-6xl font-light tracking-wider mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-wider mb-4 md:mb-6" style={{ fontFamily: "Cinzel", fontWeight: 500, fontStyle: "normal", fontOpticalSizing: "auto" }}>
             Some of Our
-            <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent ml-3">
+            <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent ml-2 md:ml-3">
               Tweets
             </span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-            Stay updated with our latest insights and analysis on the Aptos
-            ecosystem
+          <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto" style={{ fontFamily: "Crimson Pro", fontWeight: 200, fontStyle: "normal", fontOpticalSizing: "auto" }}>
+            Stay updated with our latest insights and analysis on the Aptos ecosystem
           </p>
         </motion.div>
 
         {/* Tweets Grid */}
         <div className="max-w-7xl mx-auto relative">
-          <div className="grid grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6">
             {/* Left Column */}
-            <div className="col-span-8 grid grid-cols-8 gap-6">
+            <div className="col-span-1 sm:col-span-8 grid grid-cols-1 sm:grid-cols-8 gap-4 sm:gap-6">
               {/* First Row */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="col-span-4 group"
+                className="col-span-1 sm:col-span-4 group"
                 whileHover={{ scale: 1.02, y: -5 }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-purple-500/25 group-hover:shadow-2xl">
@@ -57,7 +56,7 @@ export default function Tweets() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="col-span-4 group"
+                className="col-span-1 sm:col-span-4 group"
                 whileHover={{ scale: 1.02, y: 70 }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-purple-500/25 group-hover:shadow-2xl">
@@ -72,11 +71,12 @@ export default function Tweets() {
                 </div>
               </motion.div>
 
+              {/* Second Row */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="col-span-4 group"
+                className="col-span-1 sm:col-span-4 group"
                 whileHover={{ scale: 1.02, y: -5 }}
               ></motion.div>
 
@@ -84,7 +84,7 @@ export default function Tweets() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: -300 }}
                 transition={{ delay: 0.5 }}
-                className="col-span-4 group"
+                className="col-span-1 sm:col-span-4 group"
                 whileHover={{ scale: 1.02, y: -360 }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-purple-500/25 group-hover:shadow-2xl">
@@ -98,8 +98,6 @@ export default function Tweets() {
                   <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/10 transition-all duration-300" />
                 </div>
               </motion.div>
-
-              {/* Second Row */}
             </div>
 
             {/* Right Column - Text Box */}
@@ -107,14 +105,14 @@ export default function Tweets() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
-              className="col-span-4 space-y-6"
+              className="col-span-1 sm:col-span-4 space-y-4 sm:space-y-6"
             >
               {/* Additional Tweet */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="col-span-4 group"
+                className="col-span-1 sm:col-span-4 group"
                 whileHover={{ scale: 1.02, y: -5 }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-purple-500/25 group-hover:shadow-2xl">

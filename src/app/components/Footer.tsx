@@ -41,7 +41,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-background to-card-bg py-20 relative">
+    <footer id="footer-section" className="bg-gradient-to-b from-background to-card-bg py-20 relative" style={{ fontFamily:"Cinzel", fontWeight:400, fontStyle:"normal", fontOpticalSizing:"auto"}}>
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
 
@@ -66,7 +66,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Social Follow Buttons */}
-            <div className="flex justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
               {footerLinks.social.map((social) => (
                 <motion.a
                   key={social.name}
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
 
           {/* Main Footer Content */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
             <div>
               <h3 className="font-semibold mb-4 text-lg">Product</h3>
               <ul className="space-y-3">
@@ -108,21 +108,7 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            <div>
-              <h3 className="font-semibold mb-4 text-lg">Company</h3>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-foreground/60 hover:text-primary transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+
             <div>
               <h3 className="font-semibold mb-4 text-lg">Legal</h3>
               <ul className="space-y-3">
@@ -147,14 +133,14 @@ export default function Footer() {
                 className="inline-flex items-center px-6 py-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
               >
-                <span className="text-primary">Follow on Twitter</span>
+                <span className="text-primary ">Follow on Twitter</span>
               </motion.a>
             </div>
           </div>
 
           {/* Bottom Bar */}
           <div className="pt-8 mt-8 border-t border-foreground/10">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="text-foreground/60 text-sm">
                 © 2025 Aptura. The Future of Autonomous Trading.
               </div>
