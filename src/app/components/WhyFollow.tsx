@@ -6,22 +6,22 @@ const reasons = [
   {
     title: "Be the First to Know",
     description: "Get alpha before the market reacts.",
-    icon: "https://cdn-icons-png.flaticon.com/128/2583/2583381.png",
+    icon: "🎯",
   },
   {
     title: "On Chain Analysis",
     description: "Get access to on chain analysis and insights",
-    icon: "https://cdn-icons-png.flaticon.com/128/15723/15723988.png",
+    icon: "🤖",
   },
   {
     title: "Community Support",
     description: "Join a thriving community of Aptos enthusiasts",
-    icon: "https://cdn-icons-png.flaticon.com/128/11913/11913323.png",
+    icon: "👥",
   },
   {
     title: "Real-time Updates",
     description: "Never miss an opportunity with instant market alerts",
-    icon: "https://cdn-icons-png.flaticon.com/128/6283/6283154.png",
+    icon: "⚡",
   },
 ];
 
@@ -80,9 +80,8 @@ export default function WhyFollow() {
               <div className="relative p-8 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl transition-all duration-300 hover:bg-card/40 hover:scale-[1.02] hover:shadow-2xl ">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-2xl" />
                 <div className="relative flex items-start gap-6">
-                  <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary-light/10 group-hover:scale-110 transition-transform duration-300">
-                    {/* Display the icon image */}
-                    <img src={reason.icon} alt="icon" className="w-12 h-12 object-contain" />
+                <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary-light/10 text-3xl group-hover:scale-110 transition-transform duration-300">
+                    {reason.icon}
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold mb-3 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
@@ -112,7 +111,7 @@ export default function WhyFollow() {
               <h3 className="text-3xl font-semibold mb-4 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent" >
                 Ready to Start Your Journey?
               </h3>
-              <p className="text-lg text-foreground/70 mb-8 " style={{ fontFamily:"Rock Salt, cursive", fontWeight:400, fontStyle:"normal"}}>
+              <p className="text-lg text-foreground/70 mb-8 " >
                 Follow ApturaX now & stay ahead of the curve.
               </p>
               <motion.button

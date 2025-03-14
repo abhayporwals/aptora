@@ -66,7 +66,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Social Follow Buttons */}
-            <div className="flex justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
               {footerLinks.social.map((social) => (
                 <motion.a
                   key={social.name}
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
 
           {/* Main Footer Content */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
             <div>
               <h3 className="font-semibold mb-4 text-lg">Product</h3>
               <ul className="space-y-3">
@@ -108,7 +108,7 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4 text-lg">Legal</h3>
               <ul className="space-y-3">
@@ -140,7 +140,7 @@ export default function Footer() {
 
           {/* Bottom Bar */}
           <div className="pt-8 mt-8 border-t border-foreground/10">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="text-foreground/60 text-sm">
                 © 2025 Aptura. The Future of Autonomous Trading.
               </div>

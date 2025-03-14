@@ -16,9 +16,7 @@
   --card-bg: rgba(123, 44, 191, 0.1);
   --card-border: rgba(123, 44, 191, 0.2);
 }
-html {
-  scroll-behavior: smooth;
-}
+
 
 
 body {
