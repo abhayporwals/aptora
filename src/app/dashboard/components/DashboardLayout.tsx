@@ -14,15 +14,13 @@ export default function DashboardLayout({
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-card-bg/80 backdrop-blur-lg border-b border-card-border"
+        className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-card-border/20"
       >
         <div className="container mx-auto px-4">
           <div className="h-16 flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl font-light bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-                APTURA
-              </span>
+              <span className="text-2xl font-light gradient-text">APTURA</span>
             </Link>
 
             {/* Navigation */}

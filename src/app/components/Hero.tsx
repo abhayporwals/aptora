@@ -134,10 +134,10 @@ export default function Hero() {
             className="hidden lg:flex mt-32 flex-col items-center gap-16 px-8 py-16 rounded-[40px]"
           >
             <a
-              href="#features-section"
+              href="/dashboard"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
-              FEATURES
+              Dashboard 
             </a>
             <a
               href="#about-us"

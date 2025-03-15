@@ -1,5 +1,40 @@
 import { useState, useEffect } from "react";
 
+interface SocialLink {
+  type: string;
+  url: string;
+}
+
+interface DappMetrics {
+  balance: number;
+  balancePercentageChange: number;
+  transactions: number;
+  transactionsPercentageChange: number;
+  uaw: number;
+  uawPercentageChange: number;
+  volume: number;
+  volumePercentageChange: number;
+}
+
+interface DappItem {
+  dappId: number;
+  name: string;
+  description: string;
+  fullDescription: string;
+  logo: string;
+  website: string;
+  link: string;
+  isActive: boolean;
+  categories: string[];
+  chains: string[];
+  socialLinks: SocialLink[];
+  tags: Array<{
+    name: string;
+    url: string;
+  }>;
+  metrics: DappMetrics;
+}
+
 interface NewsItem {
   title: string;
   published_at: string;
@@ -8,32 +43,6 @@ interface NewsItem {
   currencies: { code: string }[];
 }
 
-interface DappMetrics {
-  transactions: number;
-  transactionsPercentageChange: number;
-  uaw: number;
-  uawPercentageChange: number;
-  volume: number;
-  volumePercentageChange: number;
-  balance: number;
-  balancePercentageChange: number;
-}
-
-interface SocialLink {
-  title: string;
-  url: string;
-  type: string;
-}
-
-interface DappItem {
-  name: string;
-  description: string;
-  logo: string;
-  categories: string[];
-  socialLinks: SocialLink[];
-  metrics: DappMetrics;
-  website: string;
-}
 interface topGainersData {
   id: string;
   symbol: string;
@@ -65,6 +74,7 @@ interface topLosersData {
   price_change_percentage_24h: number;
   last_updated: string;
 }
+
 interface AptosPriceData {
   usd: number;
   usd_24h_vol: number;
@@ -72,11 +82,11 @@ interface AptosPriceData {
 }
 
 interface CoinGeckoResponse {
-  aptos ?: AptosPriceData;
+  aptos?: AptosPriceData;
 }
 
 interface AptosChartData {
-  prices: [number, number][]
+  prices: [number, number][];
 }
 
 interface DashboardData {
@@ -84,7 +94,7 @@ interface DashboardData {
   news: NewsItem[];
   topGainers: topGainersData[];
   topLosers: topLosersData[];
-  aptPrice: any;
+  aptPrice: CoinGeckoResponse;
   aptosChartData: AptosChartData[];
   isLoading: boolean;
   error: string | null;
@@ -96,7 +106,7 @@ export function useDashboardData(): DashboardData {
     news: [],
     topGainers: [],
     topLosers: [],
-    aptPrice: [],
+    aptPrice: {},
     aptosChartData: [],
     isLoading: true,
     error: null,
@@ -110,29 +120,17 @@ export function useDashboardData(): DashboardData {
           throw new Error("Failed to fetch dashboard data");
         }
         const result = await response.json();
-        console.log("result", result);
-
-        const formattedDapps = result.topDapps.map((dapp: any) => ({
-          name: dapp.name || "Unknown",
-          category: dapp.category || "DeFi",
-          volume_24h: dapp.balanceUSD || 0,
-          change_24h:
-            ((dapp.balanceUSD - dapp.balance) / dapp.balance) * 100 || 0,
-          balance: dapp.balance || 0,
-          balanceUSD: dapp.balanceUSD || 0,
-        }));
 
         setData({
-          topDapps: formattedDapps,
+          topDapps: result.topDapps || [],
           news: result.news || [],
           topGainers: result.topGainers || [],
           topLosers: result.topLosers || [],
-          aptPrice: result.AptoPrice || [],
+          aptPrice: result.AptoPrice || {},
           aptosChartData: result.aptosChartData || [],
           isLoading: false,
           error: null,
         });
-
       } catch (error) {
         setData((prev) => ({
           ...prev,
@@ -147,7 +145,6 @@ export function useDashboardData(): DashboardData {
     const interval = setInterval(fetchData, 5 * 60 * 1000);
 
     return () => clearInterval(interval);
-
   }, []);
 
   return data;

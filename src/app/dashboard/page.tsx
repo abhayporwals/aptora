@@ -8,34 +8,35 @@ import AptosChart from "../components/AptosChart";
 
 export default function DashboardPage() {
   return (
-    <>
-<AptosChart/>
-      <div className="flex w-full justify-between">
-        <TopGainers />
-        <TopLosers />
-      </div>
+    <div className="space-y-6">
+      {/* Main Price Chart Section */}
+      <section className="w-full p-6">
+        <AptosChart />
+      </section>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
-        {/* Price Overview Section */}
-        <div className="lg:col-span-8">
-          <PriceOverview />
+         {/* Market Overview Section */}
+      <section className="container px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <TopGainers />
+          <TopLosers />
         </div>
+      </section>
 
-        {/* News Feed Section */}
-        <div className="lg:col-span-4">
-          <NewsSection />
-        </div>
 
-        {/* Top Dapps Section */}
-        <div className="lg:col-span-6">
-          <TopDapps />
-        </div>
+      {/* Main Dashboard Content */}
+      <section className="container p-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Left Column - Top DApps */}
+          <div className="lg:col-span-8">
+            <TopDapps />
+          </div>
 
-        {/* Market Movers Section */}
-        <div className="lg:col-span-6">
-          <MarketMovers />
+          {/* Right Column - News Feed */}
+          <div className="lg:col-span-4">
+            <NewsSection />
+          </div>
         </div>
-      </div>
-    </>
+      </section>
+    </div>
   );
 }

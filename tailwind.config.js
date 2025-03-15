@@ -18,8 +18,14 @@ export const theme = {
             foreground: 'var(--foreground)',
             'card-bg': 'var(--card-bg)',
             'card-border': 'var(--card-border)',
+            'card': {
+                bg: 'var(--card-bg)',
+                border: 'var(--card-border)',
+            }
         },
         animation: {
+            'slide-in': 'slideIn 0.5s ease-out forwards',
+            'fade-scale': 'fadeScale 0.4s ease-out forwards',
             'fade-in': 'fadeIn 0.6s ease-out forwards',
             'float': 'floatUpDown 4s ease-in-out infinite',
             'pulse': 'pulse 2s ease-in-out infinite',
@@ -33,6 +39,18 @@ export const theme = {
                 xl: '5rem',
                 '2xl': '6rem',
             },
+        },
+        spacing: {
+            '18': '4.5rem',
+            '22': '5.5rem',
+        },
+        borderRadius: {
+            'xl': '1rem',
+            '2xl': '1.5rem',
+        },
+        backdropBlur: {
+            'xs': '2px',
+            'md': '8px',
         },
     },
 };

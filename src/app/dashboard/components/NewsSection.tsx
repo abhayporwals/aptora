@@ -12,15 +12,11 @@ export default function NewsSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl h-full"
+        className="card h-full"
       >
-        <h2 className="text-2xl font-light mb-6">
-          <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-            Latest News
-          </span>
-        </h2>
+        <h2 className="gradient-text text-2xl font-light mb-6">Latest News</h2>
         <div className="animate-pulse space-y-4">
-          {[1, 2, 3].map((i) => (
+          {[1, 2, 3, 4].map((i) => (
             <div key={i} className="h-24 bg-card/20 rounded-xl" />
           ))}
         </div>
@@ -28,25 +24,15 @@ export default function NewsSection() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl">
-        <p className="text-red-500">Error loading news: {error}</p>
-      </div>
-    );
-  }
+  if (!news?.length) return null;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl h-full"
+      className="card h-full"
     >
-      <h2 className="text-2xl font-light mb-6">
-        <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-          Latest News
-        </span>
-      </h2>
+      <h2 className="gradient-text text-2xl font-light mb-6">Latest News</h2>
 
       <div className="space-y-4">
         {news.map((item, index) => (
@@ -58,20 +44,25 @@ export default function NewsSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="block p-4 rounded-xl bg-card/20 border border-white/5 hover:bg-card/30 transition-all"
+            className="block glass-card p-4 rounded-xl hover:scale-[1.02] transition-all duration-200"
           >
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="text-foreground/90 font-medium">{item.title}</h3>
-              <span className="text-xs text-primary px-2 py-1 rounded-full bg-primary/10">
-                {item.currencies[0]?.code || "CRYPTO"}
-              </span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-foreground/60">
-              <span>{item.source.title}</span>
-              <span>•</span>
-              <span>
-                {formatDistanceToNow(new Date(item.published_at))} ago
-              </span>
+            <div className="flex flex-col gap-2">
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="text-sm font-medium text-foreground/90 line-clamp-2 flex-grow">
+                  {item.title}
+                </h3>
+                <span className="flex-shrink-0 text-xs text-primary px-2 py-1 rounded-full bg-primary/10 whitespace-nowrap">
+                  {item.currencies[0]?.code || "CRYPTO"}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2 text-xs text-foreground/60">
+                <span className="font-medium">{item.source.title}</span>
+                <span className="text-foreground/40">•</span>
+                <span>
+                  {formatDistanceToNow(new Date(item.published_at))} ago
+                </span>
+              </div>
             </div>
           </motion.a>
         ))}

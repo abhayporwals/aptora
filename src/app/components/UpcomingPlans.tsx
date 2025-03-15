@@ -42,21 +42,21 @@ export default function UpcomingPlans() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-light text-center mb-12 md:mb-16"
+          className="text-4xl sm:text-5xl md:text-6xl font-light text-center mb-4 md:mb-6"
           style={{ fontFamily: "Cinzel", fontWeight: 600, fontStyle: "normal", fontOpticalSizing: "auto" }}
         >
           Upcoming
           <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent ml-2 md:ml-3">
             Plans
           </span>
-          <p className="text-lg sm:text-xl md:text-2xl font-light text-foreground/90 mb-4 mt-1">
+          <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto" style={{ fontFamily: "Crimson Pro", fontWeight: 200, fontStyle: "normal", fontOpticalSizing: "auto" }}>
           The future of Aptura is evolving—stay tuned for game-changing innovations.
           </p>
-        </motion.h2>
+        </motion.div>
 
         <div className="max-w-4xl mx-auto">
           <motion.div

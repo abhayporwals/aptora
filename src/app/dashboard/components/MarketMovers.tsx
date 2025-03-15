@@ -6,22 +6,15 @@ import { useDashboardData } from "../hooks/useDashboardData";
 export default function MarketMovers() {
   const { topDapps, isLoading, error } = useDashboardData();
 
-
-  console.log(topDapps);
-
   if (isLoading) {
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl"
+        className="glass-card p-6 rounded-2xl"
       >
-        <h2 className="text-2xl font-light mb-6">
-          <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-            Market Movers
-          </span>
-        </h2>
         <div className="animate-pulse space-y-4">
+          <div className="h-8 w-40 bg-card/20 rounded-lg" />
           {[1, 2].map((i) => (
             <div key={i} className="h-32 bg-card/20 rounded-xl" />
           ))}
@@ -30,54 +23,59 @@ export default function MarketMovers() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl">
-        <p className="text-red-500">Error loading market data: {error}</p>
-      </div>
-    );
-  }
-
+  if (!topDapps?.length) return null;
 
   return (
-    <div className="space-y-4">
-      {topDapps.length > 0 ? (
-        topDapps.map((dapp, index) => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="glass-card p-6 rounded-2xl"
+    >
+      <h2 className="text-2xl font-light mb-6 gradient-text">Market Movers</h2>
+
+      <div className="space-y-4">
+        {topDapps.map((dapp, index) => (
           <motion.div
             key={index}
-            rel="noopener noreferrer"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="block p-4 rounded-xl bg-card/20 border border-white/5 hover:bg-card/30 transition-all"
+            className="glass-card p-4 rounded-xl hover:scale-[1.02] transition-transform"
           >
-            {/* Logo & Name */}
-            <div className="flex items-center gap-3 mb-2">
-              <img src={dapp.logo} alt={dapp.name} className="w-8 h-8 rounded-full" />
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full overflow-hidden bg-card/30">
+                <img
+                  src={dapp.logo}
+                  alt={dapp.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <h3 className="text-foreground/90 font-medium">{dapp.name}</h3>
             </div>
 
-            {/* Transactions & Volume */}
-            <div className="grid grid-cols-3 gap-2 text-xs text-foreground/60">
+            <div className="grid grid-cols-3 gap-4">
               <div>
-                <span className="font-medium text-foreground">{dapp.metrics?.transactions ?? "N/A"}</span>
-                <p>Transactions</p>
+                <div className="stat-label">Transactions</div>
+                <div className="text-sm font-medium text-primary">
+                  {dapp.metrics?.transactions?.toLocaleString() ?? "N/A"}
+                </div>
               </div>
               <div>
-                <span className="font-medium text-foreground">{dapp.metrics?.uaw ?? "N/A"}</span>
-                <p>Users</p>
+                <div className="stat-label">Users</div>
+                <div className="text-sm font-medium text-primary">
+                  {dapp.metrics?.uaw?.toLocaleString() ?? "N/A"}
+                </div>
               </div>
               <div>
-                <span className="font-medium text-foreground">${dapp.metrics?.volume?.toLocaleString() ?? "N/A"}</span>
-                <p>Volume</p>
+                <div className="stat-label">Volume</div>
+                <div className="text-sm font-medium text-primary">
+                  ${dapp.metrics?.volume?.toLocaleString() ?? "N/A"}
+                </div>
               </div>
             </div>
           </motion.div>
-        ))
-      ) : (
-        <p className="text-sm text-foreground/50">Loading or No DApps Found...</p>
-      )}
-    </div>
-
+        ))}
+      </div>
+    </motion.div>
   );
 }
