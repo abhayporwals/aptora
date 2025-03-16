@@ -1,89 +1,91 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { useDashboardData } from "../hooks/useDashboardData"
-import Link from "next/link"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ChevronUp, ChevronDown, ExternalLink, Search } from 'lucide-react'
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useDashboardData } from "../hooks/useDashboardData";
+import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ChevronUp, ChevronDown, ExternalLink, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 // Sort options
-type SortOption = "balance" | "volume" | "users" | "transactions"
-type SortDirection = "asc" | "desc"
+type SortOption = "balance" | "volume" | "users" | "transactions";
+type SortDirection = "asc" | "desc";
 
 export default function TopDapps() {
-  const { topDapps, isLoading, error } = useDashboardData()
-  const [searchQuery, setSearchQuery] = useState("")
-  const [sortBy, setSortBy] = useState<SortOption>("balance")
-  const [sortDirection, setSortDirection] = useState<SortDirection>("desc")
-  const [activeTab, setActiveTab] = useState("all")
-  const containerRef = useRef<HTMLDivElement>(null)
+  const { topDapps, isLoading, error } = useDashboardData();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState<SortOption>("balance");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
+  const [activeTab, setActiveTab] = useState("all");
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Filter and sort dapps
   const filteredAndSortedDapps = topDapps
     ? topDapps
-      .filter(dapp => {
-        // Filter by search query
-        if (searchQuery) {
-          return dapp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            dapp.description.toLowerCase().includes(searchQuery.toLowerCase())
-        }
+        .filter((dapp) => {
+          // Filter by search query
+          if (searchQuery) {
+            return (
+              dapp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+              dapp.description.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+          }
 
-        // Filter by category tab
-        if (activeTab !== "all") {
-          return dapp.categories[0] === activeTab
-        }
+          // Filter by category tab
+          if (activeTab !== "all") {
+            return dapp.categories[0] === activeTab;
+          }
 
-        return true
-      })
-      .sort((a, b) => {
-        // Sort by selected metric
-        let valueA, valueB
+          return true;
+        })
+        .sort((a, b) => {
+          // Sort by selected metric
+          let valueA, valueB;
 
-        switch (sortBy) {
-          case "balance":
-            valueA = a.metrics.balance
-            valueB = b.metrics.balance
-            break
-          case "volume":
-            valueA = a.metrics.volume
-            valueB = b.metrics.volume
-            break
-          case "users":
-            valueA = a.metrics.uaw
-            valueB = b.metrics.uaw
-            break
-          case "transactions":
-            valueA = a.metrics.transactions
-            valueB = b.metrics.transactions
-            break
-          default:
-            valueA = a.metrics.balance
-            valueB = b.metrics.balance
-        }
+          switch (sortBy) {
+            case "balance":
+              valueA = a.metrics.balance;
+              valueB = b.metrics.balance;
+              break;
+            case "volume":
+              valueA = a.metrics.volume;
+              valueB = b.metrics.volume;
+              break;
+            case "users":
+              valueA = a.metrics.uaw;
+              valueB = b.metrics.uaw;
+              break;
+            case "transactions":
+              valueA = a.metrics.transactions;
+              valueB = b.metrics.transactions;
+              break;
+            default:
+              valueA = a.metrics.balance;
+              valueB = b.metrics.balance;
+          }
 
-        return sortDirection === "desc" ? valueB - valueA : valueA - valueB
-      })
-    : []
+          return sortDirection === "desc" ? valueB - valueA : valueA - valueB;
+        })
+    : [];
 
   // Get unique categories for tabs
   const categories = topDapps
-    ? ["all", ...new Set(topDapps.map(dapp => dapp.categories[0]))]
-    : ["all"]
+    ? ["all", ...new Set(topDapps.map((dapp) => dapp.categories[0]))]
+    : ["all"];
 
   // Handle sort toggle
   const handleSortToggle = (option: SortOption) => {
     if (sortBy === option) {
-      setSortDirection(sortDirection === "desc" ? "asc" : "desc")
+      setSortDirection(sortDirection === "desc" ? "asc" : "desc");
     } else {
-      setSortBy(option)
-      setSortDirection("desc")
+      setSortBy(option);
+      setSortDirection("desc");
     }
-  }
+  };
 
   if (isLoading) {
     return (
@@ -99,11 +101,11 @@ export default function TopDapps() {
           ))}
         </div>
       </motion.div>
-    )
+    );
   }
 
   if (error || !topDapps?.length) {
-    return null
+    return null;
   }
 
   return (
@@ -117,9 +119,14 @@ export default function TopDapps() {
         <h2 className="text-2xl text-purple-400 font-semibold">Top DApps</h2>
       </div>
       {/* Category tabs */}
-      <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab} className="mb-6">
+      <Tabs
+        defaultValue="all"
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="mb-6"
+      >
         <TabsList className="bg-card/30 p-1 overflow-x-auto flex w-full justify-start sm:justify-center">
-          {categories.map(category => (
+          {categories.map((category) => (
             <TabsTrigger
               key={category}
               value={category}
@@ -133,12 +140,14 @@ export default function TopDapps() {
 
       {/* Sort controls */}
       <div className="flex flex-wrap gap-2 mb-4">
-        <span className="text-sm text-muted-foreground mr-1 self-center">Sort by:</span>
+        <span className="text-sm text-muted-foreground mr-1 self-center">
+          Sort by:
+        </span>
         {[
           { id: "balance", label: "Balance" },
           { id: "volume", label: "Volume" },
           { id: "users", label: "Users" },
-          { id: "transactions", label: "Transactions" }
+          { id: "transactions", label: "Transactions" },
         ].map((option) => (
           <Button
             key={option.id}
@@ -153,7 +162,11 @@ export default function TopDapps() {
             {option.label}
             {sortBy === option.id && (
               <span className="ml-1">
-                {sortDirection === "desc" ? <ChevronDown className="h-3 w-3" /> : <ChevronUp className="h-3 w-3" />}
+                {sortDirection === "desc" ? (
+                  <ChevronDown className="h-3 w-3" />
+                ) : (
+                  <ChevronUp className="h-3 w-3" />
+                )}
               </span>
             )}
           </Button>
@@ -161,7 +174,11 @@ export default function TopDapps() {
       </div>
 
       {/* Scrollable content area */}
-      <ScrollArea className="flex-grow pr-4 -mr-4" style={{ maxHeight: "calc(100vh - 300px)" }}>
+      <ScrollArea
+        className="flex-grow pr-4 -mr-4"
+        style={{ maxHeight: "calc(100vh - 300px)" }}
+        data-lenis-prevent
+      >
         <AnimatePresence initial={false} mode="popLayout">
           <div className="space-y-6">
             {filteredAndSortedDapps.length > 0 ? (
@@ -176,7 +193,7 @@ export default function TopDapps() {
                     delay: index * 0.05,
                     type: "spring",
                     stiffness: 100,
-                    damping: 15
+                    damping: 15,
                   }}
                   className="glass-card p-4 sm:p-6 rounded-xl hover:shadow-lg transition-all duration-300 hover:bg-card/40"
                   layout
@@ -253,11 +270,16 @@ export default function TopDapps() {
                   {/* Metrics Grid */}
                   <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-3 mt-6">
                     {/* Balance */}
-                    <div className={cn(
-                      "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
-                      sortBy === "balance" && "ring-1 ring-primary/20 bg-primary/5"
-                    )}>
-                      <div className="text-xs text-muted-foreground">Balance</div>
+                    <div
+                      className={cn(
+                        "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
+                        sortBy === "balance" &&
+                          "ring-1 ring-primary/20 bg-primary/5"
+                      )}
+                    >
+                      <div className="text-xs text-muted-foreground">
+                        Balance
+                      </div>
                       <div className="text-base sm:text-lg font-semibold mt-1">
                         $
                         {dapp.metrics.balance.toLocaleString(undefined, {
@@ -277,16 +299,24 @@ export default function TopDapps() {
                         ) : (
                           <ChevronDown className="h-3 w-3 mr-0.5" />
                         )}
-                        {Math.abs(dapp.metrics.balancePercentageChange).toFixed(2)}%
+                        {Math.abs(dapp.metrics.balancePercentageChange).toFixed(
+                          2
+                        )}
+                        %
                       </div>
                     </div>
 
                     {/* Volume */}
-                    <div className={cn(
-                      "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
-                      sortBy === "volume" && "ring-1 ring-primary/20 bg-primary/5"
-                    )}>
-                      <div className="text-xs text-muted-foreground">Volume 24h</div>
+                    <div
+                      className={cn(
+                        "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
+                        sortBy === "volume" &&
+                          "ring-1 ring-primary/20 bg-primary/5"
+                      )}
+                    >
+                      <div className="text-xs text-muted-foreground">
+                        Volume 24h
+                      </div>
                       <div className="text-base sm:text-lg font-semibold mt-1">
                         $
                         {dapp.metrics.volume.toLocaleString(undefined, {
@@ -306,16 +336,24 @@ export default function TopDapps() {
                         ) : (
                           <ChevronDown className="h-3 w-3 mr-0.5" />
                         )}
-                        {Math.abs(dapp.metrics.volumePercentageChange).toFixed(2)}%
+                        {Math.abs(dapp.metrics.volumePercentageChange).toFixed(
+                          2
+                        )}
+                        %
                       </div>
                     </div>
 
                     {/* Users */}
-                    <div className={cn(
-                      "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
-                      sortBy === "users" && "ring-1 ring-primary/20 bg-primary/5"
-                    )}>
-                      <div className="text-xs text-muted-foreground">Active Users 24h</div>
+                    <div
+                      className={cn(
+                        "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
+                        sortBy === "users" &&
+                          "ring-1 ring-primary/20 bg-primary/5"
+                      )}
+                    >
+                      <div className="text-xs text-muted-foreground">
+                        Active Users 24h
+                      </div>
                       <div className="text-base sm:text-lg font-semibold mt-1">
                         {dapp.metrics.uaw.toLocaleString()}
                       </div>
@@ -337,11 +375,16 @@ export default function TopDapps() {
                     </div>
 
                     {/* Transactions */}
-                    <div className={cn(
-                      "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
-                      sortBy === "transactions" && "ring-1 ring-primary/20 bg-primary/5"
-                    )}>
-                      <div className="text-xs text-muted-foreground">Transactions 24h</div>
+                    <div
+                      className={cn(
+                        "glass-card p-3 sm:p-4 rounded-lg transition-all duration-300",
+                        sortBy === "transactions" &&
+                          "ring-1 ring-primary/20 bg-primary/5"
+                      )}
+                    >
+                      <div className="text-xs text-muted-foreground">
+                        Transactions 24h
+                      </div>
                       <div className="text-base sm:text-lg font-semibold mt-1">
                         {dapp.metrics.transactions.toLocaleString()}
                       </div>
@@ -358,7 +401,10 @@ export default function TopDapps() {
                         ) : (
                           <ChevronDown className="h-3 w-3 mr-0.5" />
                         )}
-                        {Math.abs(dapp.metrics.transactionsPercentageChange).toFixed(2)}%
+                        {Math.abs(
+                          dapp.metrics.transactionsPercentageChange
+                        ).toFixed(2)}
+                        %
                       </div>
                     </div>
                   </div>
@@ -377,5 +423,5 @@ export default function TopDapps() {
         </AnimatePresence>
       </ScrollArea>
     </motion.div>
-  )
+  );
 }

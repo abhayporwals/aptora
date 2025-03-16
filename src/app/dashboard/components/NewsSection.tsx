@@ -1,17 +1,21 @@
-"use client"
+"use client";
 
-import { motion, AnimatePresence } from "framer-motion"
-import { useDashboardData } from "../hooks/useDashboardData"
-import { formatDistanceToNow } from "date-fns"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { ExternalLink, Clock, Newspaper } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion";
+import { useDashboardData } from "../hooks/useDashboardData";
+import { formatDistanceToNow } from "date-fns";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { ExternalLink, Clock, Newspaper } from "lucide-react";
 
 export default function NewsSection() {
-  const { news, isLoading } = useDashboardData()
+  const { news, isLoading } = useDashboardData();
 
   if (isLoading) {
     return (
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="card h-full">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="card h-full"
+      >
         <h2 className="gradient-text text-2xl font-light mb-6">Latest News</h2>
         <div className="animate-pulse space-y-4">
           {[1, 2, 3, 4].map((i) => (
@@ -19,18 +23,26 @@ export default function NewsSection() {
           ))}
         </div>
       </motion.div>
-    )
+    );
   }
 
-  if (!news?.length) return null
+  if (!news?.length) return null;
 
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-purple-900/10 p-6 h-full flex flex-col">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-purple-900/10 p-6 h-full flex flex-col"
+    >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <h2 className="text-purple-400 font-semibold text-2xl">Latest News</h2>
       </div>
       {/* Scrollable news content */}
-      <ScrollArea className="flex-grow pr-4 -mr-4" style={{ maxHeight: "calc(100vh - 250px)" }}>
+      <ScrollArea
+        className="flex-grow pr-4 -mr-4"
+        style={{ maxHeight: "calc(100vh - 250px)" }}
+        data-lenis-prevent
+      >
         <AnimatePresence initial={false} mode="popLayout">
           <div className="space-y-4">
             {news.map((item, index) => (
@@ -67,7 +79,9 @@ export default function NewsSection() {
 
                     <div className="flex items-center gap-1">
                       <Clock className="h-3 w-3 text-primary/60" />
-                      <span>{formatDistanceToNow(new Date(item.published_at))} ago</span>
+                      <span>
+                        {formatDistanceToNow(new Date(item.published_at))} ago
+                      </span>
                     </div>
 
                     <span className="ml-auto flex items-center gap-1 text-primary/70 group-hover:text-primary transition-colors">
@@ -76,12 +90,10 @@ export default function NewsSection() {
                   </div>
                 </div>
               </motion.a>
-            ))
-            }
+            ))}
           </div>
         </AnimatePresence>
       </ScrollArea>
     </motion.div>
-  )
+  );
 }
-
