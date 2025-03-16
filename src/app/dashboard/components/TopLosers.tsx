@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useDashboardData } from '../dashboard/hooks/useDashboardData';
+import { useDashboardData } from '../hooks/useDashboardData';
 import { motion } from "framer-motion";
 
 const TopLosers = () => {
@@ -14,7 +14,7 @@ const TopLosers = () => {
                 className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl h-full"
             >
                 <h2 className="text-2xl font-light mb-6">
-                    <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-primary to-primary-light text-purple-400 font-semibold">
                         Top Losers
                     </span>
                 </h2>
@@ -42,7 +42,7 @@ const TopLosers = () => {
             className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl h-full"
         >
             <h2 className="text-2xl font-light mb-6">
-                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-purple-400 font-semibold">
                     Top Losers
                 </span>
             </h2>

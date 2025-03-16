@@ -8,6 +8,7 @@ export const darkMode = 'class';
 export const theme = {
     extend: {
         colors: {
+            border: 'var(--border)', // Add this line
             primary: 'var(--primary)',
             'primary-dark': 'var(--primary-dark)',
             'primary-light': 'var(--primary-light)',

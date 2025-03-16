@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -139,24 +140,24 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="hidden lg:flex mt-32 flex-col items-center gap-16 px-8 py-16 rounded-[40px]"
           >
-            <a
+            <Link
               href="/dashboard"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
               Dashboard
-            </a>
-            <a
+            </Link>
+            <Link
               href="#about-us"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
               About
-            </a>
-            <a
+            </Link>
+            <Link
               href="#footer-section"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
               Contact
-            </a>
+            </Link>
           </motion.div>
 
           {/* Mobile Menu (Overlay) */}
@@ -188,27 +189,27 @@ export default function Hero() {
                   </svg>
                 </button>
                 <div className="flex flex-col gap-8 p-8 mt-16 mr-4">
-                  <a
+                  <Link
                     href="/dashboard"
                     className="text-xl text-white tracking-widest hover:text-primary transition-colors"
                     onClick={toggleMenu}
                   >
                     Dashboard
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="#about-us"
                     className="text-xl text-white tracking-widest hover:text-primary transition-colors"
                     onClick={toggleMenu}
                   >
                     About
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="#footer-section"
                     className="text-xl text-white tracking-widest hover:text-primary transition-colors"
                     onClick={toggleMenu}
                   >
                     Contact
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             </div>

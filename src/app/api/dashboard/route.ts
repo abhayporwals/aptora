@@ -25,9 +25,9 @@ export async function GET() {
 
     const newsApiUrl = `https://cryptopanic.com/api/v1/posts/?auth_token=${CRYPTOPANIC_API_KEY}&public=true&currencies=${currency}`;
 
-    const topgainers = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_desc&per_page=10&page=1&price_change_percentage=24h&ids=aptos`;
+    const topgainers = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&price_change_percentage=24h&ids=aptos,thala,propbase,bluemove,abel-finance`;
 
-    const toplosers = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_asc&per_page=10&page=1&price_change_percentage=24h&ids=aptos`;
+    const toplosers = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=volume_asc&per_page=10&page=1&price_change_percentage=24h&ids=aptos,thala,propbase,bluemove,abel-finance`;
 
     const aptPrice = `https://api.coingecko.com/api/v3/simple/price?ids=aptos&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`;
 
