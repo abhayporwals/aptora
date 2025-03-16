@@ -40,66 +40,72 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-xl pt-20 lg:pt-0 text-center lg:text-left"
+            className="w-full lg:max-w-xl pt-20 lg:pt-0 text-center lg:text-left"
           >
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 text-black"
-              style={{
-                fontFamily: "Cinzel",
-                fontWeight: 600,
-                fontStyle: "normal",
-                fontOpticalSizing: "auto",
-              }}
-            >
-              APTURA
-            </h1>
-            <h2 className="text-lg sm:text-xl md:text-2xl font-light mb-8 md:mb-12 leading-relaxed">
-              The Autonomous AI
-              <br />
-              Revolutionizing Aptos
-              <br />
-              Engagement.
-            </h2>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              className="px-8 sm:px-12 py-2 sm:py-3 backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 rounded-full font-light transition-all text-base sm:text-lg mb-8 md:mb-12"
-            >
-              FOLLOW NOW
-            </motion.button>
-
-            {/* Social Links */}
-            <div className="flex gap-4 justify-center lg:justify-start">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                href="https://twitter.com/ApturaX"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="backdrop-blur-sm bg-white/10 rounded-full p-2 sm:p-3 hover:bg-white/20 transition-all border border-white/20"
+            <div className="sm:backdrop-blur-md sm:bg-black/10 sm:p-8 sm:rounded-2xl lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
+              <h1
+                className="text-6xl sm:text-7xl lg:text-6xl font-light mb-6 text-black mt-16 drop-shadow-lg"
+                style={{
+                  fontFamily: "Cinzel",
+                  fontWeight: 200,
+                  fontStyle: "normal",
+                  fontOpticalSizing: "auto",
+                }}
               >
-                <Image
-                  src="/twitter.svg"
-                  alt="Twitter"
-                  width={24}
-                  height={24}
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                />
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                href="https://t.me/ApturaX"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="backdrop-blur-sm bg-white/10 rounded-full p-2 sm:p-3 hover:bg-white/20 transition-all border border-white/20"
-              >
-                <Image
-                  src="/telegram.svg"
-                  alt="Telegram"
-                  width={24}
-                  height={24}
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                />
-              </motion.a>
+                APTURA
+              </h1>
+
+              {/* Hidden on small screens, visible on lg screens */}
+              <div className="hidden lg:block">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-light mb-8 md:mb-12 leading-relaxed">
+                  The Autonomous AI
+                  <br />
+                  Revolutionizing Aptos
+                  <br />
+                  Engagement.
+                </h2>
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  className="px-8 sm:px-12 py-2 sm:py-3 backdrop-blur-sm bg-white/10 border border-white/20 hover:bg-white/20 rounded-full font-light transition-all text-base sm:text-lg mb-8 md:mb-12"
+                >
+                  FOLLOW NOW
+                </motion.button>
+              </div>
+
+              {/* Social Links - Always visible */}
+              <div className="flex gap-4 justify-center lg:justify-start mt-8 lg:mt-0">
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  href="https://twitter.com/ApturaX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="backdrop-blur-sm bg-white/10 rounded-full p-2 sm:p-3 hover:bg-white/20 transition-all border border-white/20"
+                >
+                  <Image
+                    src="/twitter.svg"
+                    alt="Twitter"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-6 lg:h-6"
+                  />
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  href="https://t.me/ApturaX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="backdrop-blur-sm bg-white/10 rounded-full p-2 sm:p-3 hover:bg-white/20 transition-all border border-white/20"
+                >
+                  <Image
+                    src="/telegram.svg"
+                    alt="Telegram"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-6 lg:h-6"
+                  />
+                </motion.a>
+              </div>
             </div>
           </motion.div>
 
@@ -137,19 +143,19 @@ export default function Hero() {
               href="/dashboard"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
-              Dashboard 
+              Dashboard
             </a>
             <a
               href="#about-us"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
-              ABOUT
+              About
             </a>
             <a
               href="#footer-section"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
-              CONTACT
+              Contact
             </a>
           </motion.div>
 
@@ -183,25 +189,25 @@ export default function Hero() {
                 </button>
                 <div className="flex flex-col gap-8 p-8 mt-16 mr-4">
                   <a
-                    href="#features-section"
+                    href="/dashboard"
                     className="text-xl text-white tracking-widest hover:text-primary transition-colors"
                     onClick={toggleMenu}
                   >
-                    FEATURES
+                    Dashboard
                   </a>
                   <a
                     href="#about-us"
                     className="text-xl text-white tracking-widest hover:text-primary transition-colors"
                     onClick={toggleMenu}
                   >
-                    ABOUT
+                    About
                   </a>
                   <a
                     href="#footer-section"
                     className="text-xl text-white tracking-widest hover:text-primary transition-colors"
                     onClick={toggleMenu}
                   >
-                    CONTACT
+                    Contact
                   </a>
                 </div>
               </motion.div>
