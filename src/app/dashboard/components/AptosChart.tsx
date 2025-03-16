@@ -36,7 +36,7 @@ const AptosChart = () => {
         );
     }
     return (
-        <Card className="bg-card-bg border border-card-border shadow-lg rounded-2xl p-4 w-full mx-auto">
+        <Card className="border border-card-border shadow-lg rounded-2xl p-4 w-full mx-auto">
             <CardHeader className="pb-2">
                 <CardTitle className="text-lg text-white text-center">Aptos Price Chart</CardTitle>
             </CardHeader>

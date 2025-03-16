@@ -42,8 +42,8 @@ const TopGainers = () => {
             className="p-6 rounded-2xl backdrop-blur-sm bg-card/30 border border-white/5 shadow-xl h-full"
         >
             <h2 className="text-2xl font-light mb-6">
-                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-                    Top Losers
+                <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-purple-400 font-semibold">
+                    Top Gainers
                 </span>
             </h2>
 

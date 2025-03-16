@@ -25,7 +25,7 @@ export default function NewsSection() {
   if (!news?.length) return null
 
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="card h-full flex flex-col">
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-purple-900/10 p-6 h-full flex flex-col">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <h2 className="text-purple-400 font-semibold text-2xl">Latest News</h2>
       </div>
@@ -52,7 +52,7 @@ export default function NewsSection() {
                 className="block glass-card p-4 rounded-xl hover:bg-card/40 hover:shadow-md transition-all duration-200 group"
                 layout
               >
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 border-b border-gray-500 pb-4">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="text-sm font-medium text-foreground/90 line-clamp-2 flex-grow group-hover:text-purple-400 transition-colors">
                       {item.title}

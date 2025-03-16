@@ -110,7 +110,7 @@ export default function TopDapps() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="card h-full flex flex-col"
+      className="h-full flex flex-col bg-purple-900/10 p-8"
       ref={containerRef}
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
