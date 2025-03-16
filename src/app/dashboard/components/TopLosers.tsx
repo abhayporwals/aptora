@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useDashboardData } from '../dashboard/hooks/useDashboardData';
+import { useDashboardData } from '../hooks/useDashboardData';
 import { motion } from "framer-motion";
 
 const TopLosers = () => {

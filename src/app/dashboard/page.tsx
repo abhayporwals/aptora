@@ -2,9 +2,9 @@ import NewsSection from "./components/NewsSection";
 import TopDapps from "./components/TopDapps";
 import PriceOverview from "./components/PriceOverview";
 import MarketMovers from "./components/MarketMovers";
-import TopGainers from "../components/TopGainers";
-import TopLosers from "../components/TopLosers";
-import AptosChart from "../components/AptosChart";
+import TopGainers from "./components/TopGainers";
+import TopLosers from "./components/TopLosers";
+import AptosChart from "./components/AptosChart";
 
 export default function DashboardPage() {
   return (
