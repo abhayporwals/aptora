@@ -1,56 +1,54 @@
-# Aptura
+# APTURA
 
-**Aptura** is an innovative project developed as part of the ***MoveAI Hackathon***.
-<br />
-**Aptura** is the first fully autonomous AI agent built for **Aptos Ecosystem** that delivers real-time Aptos news, on-chain data, and trading insights. It is a multi-agent system that can interact with the Aptos ecosystem in various ways.
+APTURA is the first fully autonomous AI agent built for the Aptos Ecosystem, delivering real-time news, on-chain data, and trading insights through a sophisticated multi-agent system.
 
-Check out our live project here: [***Aptura***](https://apturax.tech)
+## 🌟 Features
 
-## Features
-***Revolutionizing Aptos engagement with cutting-edge AI and unmatched precision.***
+### Core Capabilities
+- **Autonomous Newsfeed** - Tweets & threads on Aptos projects, DeFi, and ecosystem updates
+- **On-Chain Tracking** - Live wallet insights, NFT collections, real-time token prices & staking data
+- **DEX Intelligence** - Monitors liquidity pools, swap rates, and top trader positions
+- **AI-Driven Replies** - Real-time insights with intelligent responses
+- **AI-Generated Visuals** - Image-based insights, trending memes, and real-time charts
+- **Instant Execution** - Tracks & reacts to events faster than humans can
 
--   **Autonomous Newsfeed**
--   **On-Chain Tracking**
--   **DEX Intelligence**
--   **AI-Driven Replies**
--   **AI-Generated Visuals**
--   **Instant Execution**
-  
+### Technology Stack
+- Move AI Agent Kit - AI-powered automation & interactions
+- DappRadar API - Live tracking of Aptos ecosystem projects
+- CryptoPanic API - Fetching breaking crypto news instantly
 
-## Team
+## 🚀 Upcoming Features
 
-### ***Meet our Team***:
+- **Token & NFT Minting** - Direct minting from Aptura's dashboard
+- **Token Trading** - Execute swaps and track market movements
+- **AI Trading Agents** - Automated trading strategies with AI execution
+- **Copy Trading** - Mirror profitable trades from Aptos ecosystem leaders
+- **Yield Aggregation** - Optimize staking and farming for maximum returns
 
-- **Abhay Porwal**  
-  *Role*: Full-Stack Developer  
-  <img src="https://apturax.tech/_next/image?url=%2Fabhay.png&w=1920&q=75" alt="Abhay's photo" width="100" height="100"/>  
-  *Twitter*: [@abhayporwals](https://twitter.com/abhayporwals)
+## 👥 Team
 
-- **S Adithiya**  
-  *Role*: Front-end Developer  
-  <img src="https://apturax.tech/_next/image?url=%2Fadi.png&w=1920&q=75" alt="Adithiya's photo" width="100" height="100"/>  
-  *Twitter*: [@Adithiya1S](https://twitter.com/Adithiya1S)
+- **Abhay Porwal** - [@abhayporwals](https://twitter.com/abhayporwals)
+- **S Adithiya** - [@Adithiya1S](https://twitter.com/Adithiya1S)
+- **Rohan Singla** - [@rohanBuilds](https://twitter.com/rohanBuilds)
+- **Ruchika Narang** - [@RuchikaNarang06](https://twitter.com/RuchikaNarang06)
 
-- **Rohan Singla**  
-  *Role*: Blockchain Developer  
-  <img src="https://apturax.tech/_next/image?url=%2Frohan.png&w=1920&q=75" alt="Rohan's photo" width="100" height="100"/>  
-  *Twitter*: [@rohanBuilds](https://twitter.com/rohanBuilds)
+## 🔗 Links
 
-- **Ruchika Narang**  
-  *Role*: UI/UX Designer  
-  <img src="https://apturax.tech/_next/image?url=%2Fruchi.png&w=1920&q=75" alt="Ruchika's photo" width="100" height="100"/>  
-  *Twitter*: [@RuchikaNarang06](https://twitter.com/RuchikaNarang06)
+- **Website**: [apturax.tech](https://apturax.tech)
+- **Twitter**: [@ApturaX](https://twitter.com/ApturaX)
+- **Telegram**: [@ApturaX](https://t.me/ApturaX)
 
-## License
+## 🏆 Hackathon
+
+APTURA was developed as part of the MoveAI Hackathon.
+
+## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Acknowledgements
+---
 
-[![image](https://github.com/user-attachments/assets/1439cb41-76b7-4439-9ec4-544dfc0799b7)](https://metamove.build/)   
-
-
-## Contact
-
-For questions, feel free to reach out via [**Twitter**](https://x.com/ApturaX) or [**Telegram**](https://t.me/ApturaX) visit the project website at [**APTURA**](https://apturax.tech).
+<p align="center">
+  <i>Revolutionizing Aptos engagement with cutting-edge AI and unmatched precision.</i>
+</p>
 
