@@ -137,7 +137,7 @@ export default function Hero() {
               href="/dashboard"
               className="text-xl text-black tracking-widest hover:text-primary transition-colors"
             >
-              Dashboard 
+              DASHBOARD
             </a>
             <a
               href="#about-us"
@@ -183,11 +183,11 @@ export default function Hero() {
                 </button>
                 <div className="flex flex-col gap-8 p-8 mt-16 mr-4">
                   <a
-                    href="#features-section"
+                    href="/dashboard"
                     className="text-xl text-white tracking-widest hover:text-primary transition-colors"
                     onClick={toggleMenu}
                   >
-                    FEATURES
+                    DASHBOARD
                   </a>
                   <a
                     href="#about-us"
