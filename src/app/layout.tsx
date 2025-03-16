@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
-const geistSans = Inter({
-  variable: "--font-geist-sans",
+const geistSans = Poppins({
   subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight:["100","200","300","400","500","600","700","800","900"]
 });
 
-const geistMono = Inter({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+// const geistMono = Inter({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "Aptura",
@@ -32,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a] text-white`}
+        className={`${geistSans.className} antialiased bg-[#0a0a0a] text-white`}
       >
         <SmoothScroll />
         {children}
