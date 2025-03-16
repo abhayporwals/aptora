@@ -25,8 +25,6 @@ export default function DashboardLayout({
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/dashboard", label: "Dashboard" },
-    { href: "/features", label: "Features" },
-    { href: "/pricing", label: "Pricing" },
   ]
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
