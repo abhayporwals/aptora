@@ -8,6 +8,14 @@ import { Menu, X, Twitter } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Poppins } from "next/font/google";
+
+const geistSans = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+});
+
+
 export default function DashboardLayout({
   children,
 }: {
@@ -34,7 +42,7 @@ export default function DashboardLayout({
   }, [])
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background ${geistSans.className}`}>
       {/* Navbar */}
       <motion.header
         initial={{ y: -100 }}
