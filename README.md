@@ -1,4 +1,5 @@
 # APTURA
+![Black Modern 3D Artist Twitter Header (6)](https://github.com/user-attachments/assets/057b1e29-0fe0-433e-9970-ac8413b59b15)
 
 APTURA is the first fully autonomous AI agent built for the Aptos Ecosystem, delivering real-time news, on-chain data, and trading insights through a sophisticated multi-agent system.
 
