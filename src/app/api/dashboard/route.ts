@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const formatChartData = (prices: [number, number][]) => {
   return prices.map(([timestamp, price]) => ({
     date: new Date(timestamp).toISOString().split("T")[0], // Format: YYYY-MM-DD
-    price: price.toFixed(2) // Round to 2 decimal places
+    price: price.toFixed(2), // Round to 2 decimal places
   }));
 };
 
@@ -31,46 +31,60 @@ export async function GET() {
 
     const aptPrice = `https://api.coingecko.com/api/v3/simple/price?ids=aptos&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true`;
 
-    const aptoschart = `https://api.coingecko.com/api/v3/coins/aptos/market_chart?vs_currency=usd&days=7&interval=daily`
+    const currentTimestamp = Date.now();
+    const aptoschart = `https://api.coingecko.com/api/v3/coins/aptos/market_chart?vs_currency=usd&days=7&interval=daily&timestamp=${currentTimestamp}`;
 
-    const [mytopDapps, newsResponse, topGainers, topLosers,APTPrice, myChart] = await Promise.all([
-      fetch(topDapps, {
-        headers: { "X-API-Key": DAPPRADAR_API_KEY || "" },
-      }).then((res) => {
-        if (!res.ok) throw new Error(`topDapps API returned ${res.status}`);
-        return res.json();
-      }),
-      fetch(newsApiUrl).then((res) => {
-        if (!res.ok) throw new Error(`News API returned ${res.status}`);
-        return res.json();
-      }),
-      fetch(topgainers, {
-        headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
-      }).then((res) => {
-        if (!res.ok) throw new Error(`Top Gainers API returned ${res.status}`);
-        return res.json();
-      }),
-      fetch(toplosers, {
-        headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
-      }).then((res) => {
-        if (!res.ok) throw new Error(`Top Losers API returned ${res.status}`);
-        return res.json();
-      }),
-      fetch(aptPrice, {
-        headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
-      }).then((res) => {
-        if (!res.ok) throw new Error(`APT Price API returned ${res.status}`);
-        return res.json();
-      }),
-      fetch(aptoschart, {
-        headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
-      }).then((res) => {
-        if (!res.ok) throw new Error(`Aptos Chart API returned ${res.status}`);
-        return res.json();
-      }),
-    ]);
+    const [mytopDapps, newsResponse, topGainers, topLosers, APTPrice, myChart] =
+      await Promise.all([
+        fetch(topDapps, {
+          headers: {
+            "X-API-Key": DAPPRADAR_API_KEY || "",
+            "Cache-Control": "no-cache",
+          },
+        }).then((res) => {
+          if (!res.ok) throw new Error(`topDapps API returned ${res.status}`);
+          return res.json();
+        }),
+        fetch(newsApiUrl, {
+          headers: {
+            "Cache-Control": "no-cache",
+          },
+        }).then((res) => {
+          if (!res.ok) throw new Error(`News API returned ${res.status}`);
+          return res.json();
+        }),
+        fetch(topgainers, {
+          headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
+        }).then((res) => {
+          if (!res.ok)
+            throw new Error(`Top Gainers API returned ${res.status}`);
+          return res.json();
+        }),
+        fetch(toplosers, {
+          headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
+        }).then((res) => {
+          if (!res.ok) throw new Error(`Top Losers API returned ${res.status}`);
+          return res.json();
+        }),
+        fetch(aptPrice, {
+          headers: { "x-cg-demo-api-key": COINGEKKO_API_KEY || "" },
+        }).then((res) => {
+          if (!res.ok) throw new Error(`APT Price API returned ${res.status}`);
+          return res.json();
+        }),
+        fetch(aptoschart, {
+          headers: {
+            "x-cg-demo-api-key": COINGEKKO_API_KEY || "",
+            "Cache-Control": "no-cache",
+          },
+        }).then((res) => {
+          if (!res.ok)
+            throw new Error(`Aptos Chart API returned ${res.status}`);
+          return res.json();
+        }),
+      ]);
     const aptosChartData = formatChartData(myChart.prices || []);
-    
+
     return NextResponse.json({
       topDapps: mytopDapps.results || [],
       news: newsResponse.results ? newsResponse.results.slice(0, 10) : [],
